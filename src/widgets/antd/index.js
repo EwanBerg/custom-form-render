@@ -1,5 +1,4 @@
 import checkboxes from './checkboxes';
-import color from './color';
 import date from './date';
 import time from './time';
 import dateRange from './dateRange';
@@ -56,7 +55,6 @@ export const widgets = {
   input: Input,
   checkbox: FrCheckbox,
   checkboxes, // checkbox多选
-  color,
   date,
   time,
   dateRange,
