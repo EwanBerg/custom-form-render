@@ -8,10 +8,7 @@ import {
 } from './utils';
 import Core from './core';
 import { Ctx, StoreCtx } from './hooks';
-import { widgets as defaultWidgets } from './widgets/antd';
 import { mapping as defaultMapping } from './mapping';
-import { ConfigProvider } from 'antd';
-import zhCN from 'antd/lib/locale/zh_CN';
 import './atom.less';
 import './index.less';
 
@@ -21,7 +18,7 @@ const defaultFinish = (data, error) => {
   console.log(data, error);
 };
 
-export { defaultWidgets as widgets, defaultMapping as mapping };
+export { defaultMapping as mapping };
 
 export { useForm } from './useForm';
 export { connectForm } from './connectForm';
@@ -103,7 +100,7 @@ function App({
 
   const tools = useMemo(
     () => ({
-      widgets: { ...defaultWidgets, ...widgets },
+      widgets: {  ...widgets },
       mapping: { ...defaultMapping, ...mapping },
     }),
     []
@@ -144,7 +141,6 @@ function App({
   const watchList = Object.keys(watch);
   // TODO: Ctx 这层暂时不用，所有都放在StoreCtx，之后性能优化在把一些常量的东西提取出来
   return (
-    <ConfigProvider locale={zhCN} {...configProvider}>
       <StoreCtx.Provider value={store}>
         <Ctx.Provider value={tools}>
           <div className={`fr-container ${sizeCls}`}>
@@ -175,7 +171,6 @@ function App({
           </div>
         </Ctx.Provider>
       </StoreCtx.Provider>
-    </ConfigProvider>
   );
 }
 
