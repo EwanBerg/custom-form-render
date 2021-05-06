@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import RenderList from './RenderChildren/RenderList';
 import RenderObject from './RenderChildren/RenderObject';
 import RenderField from './RenderField';
 import { useStore } from '../hooks';
@@ -201,17 +200,7 @@ const Core = ({
     </div>
   ) : null;
 
-  const listChildren = hasChildren ? (
-    <RenderList
-      parentId={id}
-      dataIndex={dataIndex}
-      errorFields={errorFields}
-      displayType={_displayType}
-      hideTitle={hideTitle}
-    >
-      {item.children}
-    </RenderList>
-  ) : null;
+  
 
   return (
     <div
@@ -220,7 +209,6 @@ const Core = ({
     >
       <RenderField {...fieldProps}>
         {isObj && objChildren}
-        {isList && listChildren}
       </RenderField>
     </div>
   );
