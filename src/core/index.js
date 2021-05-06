@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef } from '@tarojs/taro';
 import RenderObject from './RenderChildren/RenderObject';
 import RenderField from './RenderField';
 import { useStore } from '../hooks';

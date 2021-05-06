@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from 'react';
+import { useRef, useEffect, useMemo } from '@tarojs/taro';
 
 function useDebouncedCallback(func, wait, options) {
   const lastCallTime = useRef(null);

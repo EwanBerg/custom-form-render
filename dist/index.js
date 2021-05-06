@@ -2,13 +2,15 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var React = require('react');
+var React = require('@tarojs/taro');
 var lodash = require('lodash');
+var React$1 = require('react');
 var Validator = require('async-validator');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var React__default$1 = /*#__PURE__*/_interopDefaultLegacy(React$1);
 var Validator__default = /*#__PURE__*/_interopDefaultLegacy(Validator);
 
 function ownKeys(object, enumerableOnly) {
@@ -1095,8 +1097,8 @@ var RenderObject = function RenderObject(_ref) {
   }));
 };
 
-var Ctx = /*#__PURE__*/React.createContext(function () {});
-var StoreCtx = /*#__PURE__*/React.createContext({}); // 使用最顶层组件的 setState
+var Ctx = React.createContext(function () {});
+var StoreCtx = React.createContext({}); // 使用最顶层组件的 setState
 
 var useTools = function useTools() {
   return React.useContext(Ctx);
@@ -1468,7 +1470,7 @@ var createWidget = function createWidget(mapProps, extraSchema) {
       }, rest), propsMap);
 
       var finalProps = transformProps(_props);
-      return /*#__PURE__*/React__default['default'].createElement(Component, finalProps);
+      return /*#__PURE__*/React__default$1['default'].createElement(Component, finalProps);
     };
   };
 };
@@ -1637,7 +1639,7 @@ var areEqual = function areEqual(prev, current) {
   return false;
 };
 
-var ExtendedWidget$1 = /*#__PURE__*/React__default['default'].memo(ExtendedWidget, areEqual);
+var ExtendedWidget$1 = React__default['default'].memo(ExtendedWidget, areEqual);
 
 var RenderField = function RenderField(props) {
   var $id = props.$id,

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useRef, useMemo } from 'react';
+import { useEffect, useRef, useMemo } from '@tarojs/taro';
 import { validateAll } from './validator';
 import { useSet } from './hooks';
 import { set, sortedUniqBy, merge } from 'lodash';

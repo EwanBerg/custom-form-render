@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from '@tarojs/taro';
 import {
   flattenSchema,
   updateSchemaToNewVersion,

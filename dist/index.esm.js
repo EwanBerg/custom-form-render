@@ -1,5 +1,6 @@
-import React, { useReducer, createContext, useContext, useRef, useEffect, useMemo } from 'react';
+import React, { createContext, useReducer, useContext, useRef, useEffect, useMemo } from '@tarojs/taro';
 import { get, cloneDeep, set, merge, unset, sortedUniqBy } from 'lodash';
+import React$1 from 'react';
 import Validator from 'async-validator';
 
 function ownKeys(object, enumerableOnly) {
@@ -1086,8 +1087,8 @@ var RenderObject = function RenderObject(_ref) {
   }));
 };
 
-var Ctx = /*#__PURE__*/createContext(function () {});
-var StoreCtx = /*#__PURE__*/createContext({}); // 使用最顶层组件的 setState
+var Ctx = createContext(function () {});
+var StoreCtx = createContext({}); // 使用最顶层组件的 setState
 
 var useTools = function useTools() {
   return useContext(Ctx);
@@ -1459,7 +1460,7 @@ var createWidget = function createWidget(mapProps, extraSchema) {
       }, rest), propsMap);
 
       var finalProps = transformProps(_props);
-      return /*#__PURE__*/React.createElement(Component, finalProps);
+      return /*#__PURE__*/React$1.createElement(Component, finalProps);
     };
   };
 };
@@ -1628,7 +1629,7 @@ var areEqual = function areEqual(prev, current) {
   return false;
 };
 
-var ExtendedWidget$1 = /*#__PURE__*/React.memo(ExtendedWidget, areEqual);
+var ExtendedWidget$1 = React.memo(ExtendedWidget, areEqual);
 
 var RenderField = function RenderField(props) {
   var $id = props.$id,

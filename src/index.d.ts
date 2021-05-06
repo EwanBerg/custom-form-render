@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from '@tarojs/taro';
 export interface Error {
   /** 错误的数据路径 */
   name: string;

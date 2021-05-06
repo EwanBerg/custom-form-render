@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '@tarojs/taro';
 import Core from '../index';
 
 // TODO: nanoId 好像没啥用

@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
   createContext,
-} from 'react';
+} from '@tarojs/taro';
 
 export const Ctx = createContext(() => {});
 export const StoreCtx = createContext({});

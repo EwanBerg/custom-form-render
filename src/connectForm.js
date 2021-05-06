@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '@tarojs/taro';
 import { useForm } from './useForm';
 
 export const connectForm = Component => {
