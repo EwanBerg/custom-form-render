@@ -2,15 +2,14 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var React = require('@tarojs/taro');
+var React = require('react');
+var taro = require('@tarojs/taro');
 var lodash = require('lodash');
-var React$1 = require('react');
 var Validator = require('async-validator');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-var React__default$1 = /*#__PURE__*/_interopDefaultLegacy(React$1);
 var Validator__default = /*#__PURE__*/_interopDefaultLegacy(Validator);
 
 function ownKeys(object, enumerableOnly) {
@@ -1097,19 +1096,19 @@ var RenderObject = function RenderObject(_ref) {
   }));
 };
 
-var Ctx = React.createContext(function () {});
-var StoreCtx = React.createContext({}); // 使用最顶层组件的 setState
+var Ctx = taro.createContext(function () {});
+var StoreCtx = taro.createContext({}); // 使用最顶层组件的 setState
 
 var useTools = function useTools() {
-  return React.useContext(Ctx);
+  return taro.useContext(Ctx);
 }; // 组件最顶层传入的所有props
 
 var useStore = function useStore() {
-  return React.useContext(StoreCtx);
+  return taro.useContext(StoreCtx);
 }; // export default logger;
 
 var useSet = function useSet(x) {
-  return React.useReducer(function (a, b) {
+  return taro.useReducer(function (a, b) {
     return _objectSpread2(_objectSpread2({}, a), b);
   }, x);
 }; // 类似于class component 的 setState
@@ -1117,14 +1116,14 @@ var useSet = function useSet(x) {
 function useDebouncedCallback(func, wait, options) {
   var _this = this;
 
-  var lastCallTime = React.useRef(null);
-  var lastInvokeTime = React.useRef(0);
-  var timerId = React.useRef(null);
-  var lastArgs = React.useRef([]);
-  var lastThis = React.useRef();
-  var result = React.useRef();
-  var funcRef = React.useRef(func);
-  var mounted = React.useRef(true);
+  var lastCallTime = taro.useRef(null);
+  var lastInvokeTime = taro.useRef(0);
+  var timerId = taro.useRef(null);
+  var lastArgs = taro.useRef([]);
+  var lastThis = taro.useRef();
+  var result = taro.useRef();
+  var funcRef = taro.useRef(func);
+  var mounted = taro.useRef(true);
   funcRef.current = func; // Bypass `requestAnimationFrame` by explicitly setting `wait=0`.
 
   var useRAF = !wait && wait !== 0 && typeof window !== 'undefined';
@@ -1140,7 +1139,7 @@ function useDebouncedCallback(func, wait, options) {
 
   var maxing = ('maxWait' in options);
   var maxWait = maxing ? Math.max(+options.maxWait || 0, wait) : null;
-  React.useEffect(function () {
+  taro.useEffect(function () {
     mounted.current = true;
     return function () {
       mounted.current = false;
@@ -1156,7 +1155,7 @@ function useDebouncedCallback(func, wait, options) {
   // And the last reason, that the code without lots of useCallback with deps is easier to read.
   // You have only one place for that.
 
-  var debounced = React.useMemo(function () {
+  var debounced = taro.useMemo(function () {
     var invokeFunc = function invokeFunc(time) {
       var args = lastArgs.current;
       var thisArg = lastThis.current;
@@ -1470,7 +1469,7 @@ var createWidget = function createWidget(mapProps, extraSchema) {
       }, rest), propsMap);
 
       var finalProps = transformProps(_props);
-      return /*#__PURE__*/React__default$1['default'].createElement(Component, finalProps);
+      return /*#__PURE__*/React__default['default'].createElement(Component, finalProps);
     };
   };
 };
@@ -1790,7 +1789,7 @@ var Core = function Core(_ref) {
       rest = _objectWithoutProperties(_ref, ["id", "_item", "dataIndex", "hideTitle", "hideValidation", "debugCss"]);
 
   // console.log('<Core>');
-  var snapShot = React.useRef();
+  var snapShot = taro.useRef();
 
   var _useStore = useStore(),
       displayType = _useStore.displayType,
@@ -2339,18 +2338,18 @@ var useForm = function useForm(props) {
       state = _useSet2[0],
       setState = _useSet2[1];
 
-  var schemaRef = React.useRef({});
-  var flattenRef = React.useRef({});
-  var clickSubmit = React.useRef(false); // 点击submit的那一下，不要执行useEffect里的validate
+  var schemaRef = taro.useRef({});
+  var flattenRef = taro.useRef({});
+  var clickSubmit = taro.useRef(false); // 点击submit的那一下，不要执行useEffect里的validate
 
-  var beforeFinishRef = React.useRef();
-  var localeRef = React.useRef('cn');
-  var validateMessagesRef = React.useRef();
+  var beforeFinishRef = taro.useRef();
+  var localeRef = taro.useRef('cn');
+  var validateMessagesRef = taro.useRef();
 
-  var _data = React.useRef({}); // 用ref是为了破除闭包的影响
+  var _data = taro.useRef({}); // 用ref是为了破除闭包的影响
 
 
-  var _touchedKeys = React.useRef([]); // 用ref是为了破除闭包的影响
+  var _touchedKeys = taro.useRef([]); // 用ref是为了破除闭包的影响
 
 
   var innerData = state.formData,
@@ -2367,7 +2366,7 @@ var useForm = function useForm(props) {
   var formData = dataFromOutside ? _formData : innerData; // 生成一个基础结构，确保对象内的必填元素也被校验。
   // _data.current = merge(generateDataSkeleton(schemaRef.current), formData);
 
-  _data.current = React.useMemo(function () {
+  _data.current = taro.useMemo(function () {
     return lodash.merge(generateDataSkeleton(schemaRef.current), formData);
   }, [JSON.stringify(formData), JSON.stringify(schemaRef.current)]);
   _touchedKeys.current = touchedKeys; // 两个兼容 0.x 的函数
@@ -2408,7 +2407,7 @@ var useForm = function useForm(props) {
   }; // 为了兼容 0.x
 
 
-  React.useEffect(function () {
+  taro.useEffect(function () {
     // 如果是外部数据，submit没有收束，无校验
     if (dataFromOutside && typeof _onValidate === 'function') {
       setTimeout(function () {
@@ -2430,7 +2429,7 @@ var useForm = function useForm(props) {
     }
   }, []); // 这里导致第二次的渲染
 
-  React.useEffect(function () {
+  taro.useEffect(function () {
     validateAll({
       formData: _data.current,
       schema: schemaRef.current,
@@ -2689,10 +2688,10 @@ function App(_ref) {
       formData = form.formData,
       isEditing = form.isEditing,
       setErrorFields = form.setErrorFields;
-  var flatten = React.useMemo(function () {
+  var flatten = taro.useMemo(function () {
     return _flatten || flattenSchema(schema);
   }, [JSON.stringify(_flatten), JSON.stringify(schema)]);
-  React.useEffect(function () {
+  taro.useEffect(function () {
     syncStuff({
       schema: schema,
       flatten: flatten,
@@ -2702,12 +2701,12 @@ function App(_ref) {
     });
   }, [JSON.stringify(_flatten), JSON.stringify(schema)]); // 组件destroy的时候，destroy form，因为useForm可能在上层，所以不一定会跟着destroy
 
-  React.useEffect(function () {
+  taro.useEffect(function () {
     return function () {
       form.resetFields();
     };
   }, []);
-  var store = React.useMemo(function () {
+  var store = taro.useMemo(function () {
     return _objectSpread2(_objectSpread2({
       flatten: flatten
     }, form), {}, {
@@ -2718,13 +2717,13 @@ function App(_ref) {
       isEditing: isEditing
     }, rest);
   }, [JSON.stringify(flatten), JSON.stringify(formData), JSON.stringify(errorFields)]);
-  var tools = React.useMemo(function () {
+  var tools = taro.useMemo(function () {
     return {
       widgets: _objectSpread2({}, widgets),
       mapping: _objectSpread2(_objectSpread2({}, mapping), mapping$1)
     };
   }, []);
-  React.useEffect(function () {
+  taro.useEffect(function () {
     // 需要外部校验的情况，此时 submitting 还是 false
     if (outsideValidating === true) {
       Promise.resolve(beforeFinish(_objectSpread2({
@@ -2800,8 +2799,8 @@ var Watcher = function Watcher(_ref2) {
       formData = _ref2.formData;
   var value = getValueByPath(formData, watchKey);
   var watchObj = watch[watchKey];
-  var firstMount = React.useRef(true);
-  React.useEffect(function () {
+  var firstMount = taro.useRef(true);
+  taro.useEffect(function () {
     var runWatcher = function runWatcher() {
       if (typeof watchObj === 'function') {
         watchObj(value);

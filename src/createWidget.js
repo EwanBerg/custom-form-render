@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro';
 import { defaultGetValueFromEvent } from './utils';
 // TODO: props传入的值，之后要改造
 // mention: createWidget 设计的构架，保证了可以多次使用套壳，而不会互相影响。内部使用了一遍用于解析schema上的字段trigger, valuePropName。外部生成自定义组件的时候还可以再套一层，用于解析 propsMap

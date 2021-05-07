@@ -1,4 +1,4 @@
-import React from '@tarojs/taro';
+import Taro from '@tarojs/taro';
 import { useStore } from '../../hooks';
 import { isCheckBoxType } from '../../utils';
 

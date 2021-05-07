@@ -1,6 +1,6 @@
-import React, { createContext, useReducer, useContext, useRef, useEffect, useMemo } from '@tarojs/taro';
+import React from 'react';
+import { createContext, useReducer, useContext, useRef, useEffect, useMemo } from '@tarojs/taro';
 import { get, cloneDeep, set, merge, unset, sortedUniqBy } from 'lodash';
-import React$1 from 'react';
 import Validator from 'async-validator';
 
 function ownKeys(object, enumerableOnly) {
@@ -1460,7 +1460,7 @@ var createWidget = function createWidget(mapProps, extraSchema) {
       }, rest), propsMap);
 
       var finalProps = transformProps(_props);
-      return /*#__PURE__*/React$1.createElement(Component, finalProps);
+      return /*#__PURE__*/React.createElement(Component, finalProps);
     };
   };
 };

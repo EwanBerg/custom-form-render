@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from '@tarojs/taro';
+import Taro, { useEffect, useRef } from '@tarojs/taro';
 import { useStore } from '../../hooks';
 import useDebouncedCallback from '../../useDebounce';
 import {

@@ -42,7 +42,7 @@ npm i form-render --save
 **最简使用 demo：**
 
 ```jsx
-import React from '@tarojs/taro';
+import Taro from '@tarojs/taro';
 import { Button } from 'antd';
 import FormRender, { connectForm } from 'form-render';
 
@@ -83,7 +83,7 @@ export default connectForm(Demo);
 **对于函数组件，FormRender 提供了 `useForm` hooks, 书写更为灵活**
 
 ```jsx
-import React from '@tarojs/taro';
+import Taro from '@tarojs/taro';
 import { Button } from 'antd';
 import FormRender, { useForm } from 'form-render';
 

@@ -1,4 +1,4 @@
-import React, { useMemo } from '@tarojs/taro';
+import Taro, { useMemo } from '@tarojs/taro';
 import { getWidgetName, extraSchemaList } from '../../mapping';
 import { useTools } from '../../hooks';
 import { transformProps } from '../../createWidget';
